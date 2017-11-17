@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.ltgt.gradle:gradle-apt-plugin:0.12"
+    }
+}
+
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: "net.ltgt.apt"
+apply plugin: "net.ltgt.apt-eclipse"
+
+repositories {
+    jcenter()
+}
+
+
+ext {
+    daggerV = "2.13"
+}
+
+dependencies {
+    apt("com.google.dagger:dagger-compiler:$daggerV")
+    compile("com.google.dagger:dagger:$daggerV")
+
+    testCompile('junit:junit:4.12')
+}
