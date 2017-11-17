@@ -9,23 +9,26 @@ buildscript {
     }
 }
 
-apply plugin: "java"
-apply plugin: "eclipse"
-apply plugin: "net.ltgt.apt"
-apply plugin: "net.ltgt.apt-eclipse"
+subprojects { -> project
 
-repositories {
-    jcenter()
-}
-
-
-ext {
-    daggerV = "2.13"
-}
-
-dependencies {
-    apt("com.google.dagger:dagger-compiler:$daggerV")
-    compile("com.google.dagger:dagger:$daggerV")
-
-    testCompile('junit:junit:4.12')
+	apply plugin: "java"
+	apply plugin: "eclipse"
+	apply plugin: "net.ltgt.apt"
+	apply plugin: "net.ltgt.apt-eclipse"
+	
+	repositories {
+	    jcenter()
+	}
+	
+	
+	ext {
+	    daggerV = "2.13"
+	}
+	
+	dependencies {
+	    apt("com.google.dagger:dagger-compiler:$daggerV")
+	    compile("com.google.dagger:dagger:$daggerV")
+	
+	    testCompile('junit:junit:4.12')
+	}
 }

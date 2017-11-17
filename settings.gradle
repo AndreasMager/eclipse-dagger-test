@@ -1,1 +1,4 @@
 rootProject.name = 'eclipse-dagger-test'
+
+include 'common'
+include 'api'
