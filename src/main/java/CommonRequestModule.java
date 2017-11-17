@@ -1,6 +1,8 @@
 
 import java.util.*;
+
 import javax.inject.Named;
+
 import dagger.*;
 
 @Module
@@ -17,5 +19,11 @@ public class CommonRequestModule {
     @Named("UserId")
     public UUID provideUserId() {
         return userId;
+    }
+    
+    @Provides
+    @RequestScope
+    public static String provideFeaturePack(@Named("UserId") UUID userId) {
+        return "Test";
     }
 }
